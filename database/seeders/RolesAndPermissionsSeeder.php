@@ -31,11 +31,13 @@ class RolesAndPermissionsSeeder extends Seeder
         // Locations
         $this->permissions['view_location'] = Permission::create(['name' => 'view location']);
         $this->permissions['add_location'] = Permission::create(['name' => 'add location']);
+        $this->permissions['update_location'] = Permission::create(['name' => 'update location']);
         $this->permissions['delete_location'] = Permission::create(['name' => 'delete location']);
         
         // Devices
         $this->permissions['view_device'] = Permission::create(['name' => 'view device']);
         $this->permissions['add_device'] = Permission::create(['name' => 'add device']);
+        $this->permissions['update_device'] = Permission::create(['name' => 'update device']);
         $this->permissions['delete_device'] = Permission::create(['name' => 'delete device']);
     }
 
@@ -44,15 +46,18 @@ class RolesAndPermissionsSeeder extends Seeder
         // Administrator
         $this->roles['administrator']->givePermissionTo($this->permissions['view_location']);
         $this->roles['administrator']->givePermissionTo($this->permissions['add_location']);
+        $this->roles['administrator']->givePermissionTo($this->permissions['update_location']);
         $this->roles['administrator']->givePermissionTo($this->permissions['delete_location']);
         $this->roles['administrator']->givePermissionTo($this->permissions['view_device']);
         $this->roles['administrator']->givePermissionTo($this->permissions['add_device']);
+        $this->roles['administrator']->givePermissionTo($this->permissions['update_device']);
         $this->roles['administrator']->givePermissionTo($this->permissions['delete_device']);
 
         // Manager
         $this->roles['manager']->givePermissionTo($this->permissions['view_location']);
         $this->roles['manager']->givePermissionTo($this->permissions['view_device']);
         $this->roles['manager']->givePermissionTo($this->permissions['add_device']); 
+        $this->roles['manager']->givePermissionTo($this->permissions['update_device']); 
         $this->roles['manager']->givePermissionTo($this->permissions['delete_device']);
 
         // Employee
