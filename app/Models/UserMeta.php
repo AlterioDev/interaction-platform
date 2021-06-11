@@ -12,6 +12,10 @@ class UserMeta extends Model
 
     public $timestamps = false;
 
+    protected $casts = [
+        'allowed_locations' => 'array'
+    ];
+
     public function user()
     {
         return $this->belongsTo('App\Models\User');
