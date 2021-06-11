@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Locations;
+use App\Models\Location;
 use Illuminate\Database\Seeder;
 
 class LocationsTableSeeder extends Seeder
@@ -14,15 +14,15 @@ class LocationsTableSeeder extends Seeder
      */
     public function run()
     {
-        Locations::create([
+        Location::create([
             'name' => 'Location 1',
         ]);
 
-        Locations::create([
+        Location::create([
             'name' => 'Location 2',
         ]);
 
-        Locations::create([
+        Location::create([
             'name' => 'Location 3',
         ]);
     }
