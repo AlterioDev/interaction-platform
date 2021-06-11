@@ -9,6 +9,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasPermissions;
 use Spatie\Permission\Traits\HasRoles;
+use App\Models\UserMeta;
 
 class User extends Authenticatable
 {
@@ -46,6 +47,6 @@ class User extends Authenticatable
 
     public function userMeta()
     {
-        return $this->hasOne('App\Models\userMeta');
+        return $this->hasOne(UserMeta::class);
     }
 }

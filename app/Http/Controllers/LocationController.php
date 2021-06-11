@@ -12,8 +12,10 @@ class LocationController extends Controller
     {
         $user = auth()->user();
 
-        if ($user->can('delete location')) {
-            return Location::all();
+        if ($user->can('view location')) {
+            $locations = $user->userMeta->allowed_locations;
+            $query = Location::query();
+            return $locations == '*' ? $query->get() : $query->whereIn('id', explode(',', $locations))->get();
         } else {
             return response('No permission to perform this request', 403);
         }

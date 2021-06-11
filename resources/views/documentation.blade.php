@@ -89,6 +89,18 @@
                     <td>email / password</td>
                 </tr>
                 <tr>
+                    <td>Register</td>
+                    <td>POST</td>
+                    <td><a href="/v2/register">/v2/register</a></td>
+                    <td>name / email / password / role / allowed_locations</td>
+                </tr>
+                <tr>
+                    <td>User</td>
+                    <td>GET</td>
+                    <td><a href="/v2/user">/v2/user</a></td>
+                    <td>-</td>
+                </tr>
+                <tr>
                     <td>Log out</td>
                     <td>POST</td>
                     <td><a href="/v2/users">/v2/logout</a></td>

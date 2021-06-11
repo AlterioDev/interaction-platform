@@ -40,12 +40,12 @@ class UsersTableSeeder extends Seeder
         $this->userMeta['bas'] = UserMeta::create([
             'user_id' => $this->user['bas']->id,
             'telegram_id' => '123456789',
-            'allowed_locations' => [1, 2, 3]
+            'allowed_locations' => '*'
         ]);
         $this->userMeta['ryan'] = UserMeta::create([
             'user_id' => $this->user['ryan']->id,
             'telegram_id' => '123456789',
-            'allowed_locations' => [1, 2]
+            'allowed_locations' => '2,3'
         ]);
     }
 

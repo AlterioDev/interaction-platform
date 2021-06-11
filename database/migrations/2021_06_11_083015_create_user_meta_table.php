@@ -20,7 +20,7 @@ class CreateUserMetaTable extends Migration
             $table->boolean('email_notification')->default(true);
             $table->boolean('telegram_notification')->default(false);
             $table->string('position')->nullable();
-            $table->json('allowed_locations');
+            $table->string('allowed_locations');
         });
     }
 

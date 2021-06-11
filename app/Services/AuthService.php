@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\User;
+use App\Models\UserMeta;
 use Illuminate\Support\Facades\Hash;
 
 class AuthService 
@@ -37,13 +38,20 @@ class AuthService
             'name' => 'required',
             'email' => 'required|unique:users|max:255',
             'password' => 'required',
-            'role' => 'required'
+            'role' => 'required',
+            'allowed_locations' => 'required'
         ]);
 
         $user = User::create($fields);
         $user->assignRole($fields['role']);
 
-        if ($user) {
+
+        $meta = UserMeta::create([
+            'user_id' => $user->id,
+            'allowed_locations' => $fields['allowed_locations']
+        ]);
+
+        if ($user && $meta) {
             return response('User registered successfully', 201);
         }
 

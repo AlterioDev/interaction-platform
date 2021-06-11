@@ -2,11 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use App\Services\AuthService;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -41,4 +38,5 @@ class AuthController extends Controller
         auth()->user()->tokens()->delete();
         return response('Logged out successfully', 200);
     }
+    
 }
