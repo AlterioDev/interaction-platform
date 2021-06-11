@@ -13,7 +13,7 @@ class CreateDevicesMetaTable extends Migration
      */
     public function up()
     {
-        Schema::create('devices_meta', function (Blueprint $table) {
+        Schema::create('device_meta', function (Blueprint $table) {
             $table->id();
             $table->integer('device_id')->nullable();
             $table->string('co2_offset')->nullable();
@@ -30,6 +30,6 @@ class CreateDevicesMetaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('devices_meta');
+        Schema::dropIfExists('device_meta');
     }
 }
