@@ -28,7 +28,8 @@ class AuthController extends Controller
 
         $response = [
             'user' => $user,
-            'token' => $token
+            'token' => $token,
+            'permissions' => []
         ];
 
         return response($response, 201);
