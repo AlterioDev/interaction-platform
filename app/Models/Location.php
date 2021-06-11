@@ -11,4 +11,9 @@ class Location extends Model
     protected $table = 'locations';
 
     public $timestamps = false;
+
+    public function locationMeta()
+    {
+        return $this->hasOne('App\Models\locationMeta');
+    }
 }

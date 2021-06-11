@@ -10,8 +10,8 @@ class LocationController extends Controller
 {
     public function index()
     {
-        $user = User::where('id', 2)->first();
-        
+        $user = auth()->user();
+
         if ($user->can('delete location')) {
             return Location::all();
         } else {
