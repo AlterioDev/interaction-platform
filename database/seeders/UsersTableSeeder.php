@@ -15,16 +15,19 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
+        $bas = User::create([
             'name' => 'Bas',
             'email' => 'bas.vandekamer@cobrasystems.nl',
             'password' => Hash::make('password')
         ]);
 
-        User::create([
+        $ryan = User::create([
             'name' => 'Ryan',
             'email' => 'ryan.debruijne@cobrasystems.nl',
             'password' => Hash::make('password')
         ]);
+
+        $bas->assignRole('Administrator');
+        $ryan->assignRole('Employee');
     }
 }

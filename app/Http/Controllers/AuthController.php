@@ -25,11 +25,12 @@ class AuthController extends Controller
         }
 
         $token = $user->createToken('api_token')->plainTextToken;
+        
+        $user->roles;
 
         $response = [
             'user' => $user,
             'token' => $token,
-            'permissions' => []
         ];
 
         return response($response, 201);
@@ -42,7 +43,7 @@ class AuthController extends Controller
         ]);
     }
 
-    public function logout(Request $request) 
+public function logout(Request $request) 
     {
         auth()->user()->tokens()->delete();
 
