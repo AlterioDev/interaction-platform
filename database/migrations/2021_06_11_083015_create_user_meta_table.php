@@ -16,9 +16,11 @@ class CreateUserMetaTable extends Migration
         Schema::create('user_meta', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->string('telegram_id');
+            $table->string('telegram_id')->nullable();
             $table->boolean('email_notification')->default(true);
             $table->boolean('telegram_notification')->default(false);
+            $table->string('position')->nullable();
+            $table->json('allowed_locations');
         });
     }
 
