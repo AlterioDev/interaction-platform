@@ -118,9 +118,9 @@
             <h3 id="roles"># Roles</h3>
             <p>There are three roles defined, and each have specific permissions. This is binded to a <code>User</code></p>
             <ul>
-                <li>Administrator</li>
-                <li>Manager</li>
-                <li>Employee</li>
+                <li>Administrator - <code> administrator</code></li>
+                <li>Manager - <code> manager</code></li>
+                <li>Employee - <code> employee</code></li>
             </ul>
             <h3 id="permissions"># Permission</h3>
             <p>We have the following permissions implemented, this is binded to a <code>Role</code></p>

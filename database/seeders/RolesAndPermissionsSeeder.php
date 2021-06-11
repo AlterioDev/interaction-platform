@@ -21,9 +21,9 @@ class RolesAndPermissionsSeeder extends Seeder
 
     public function add_roles()
     {
-        $this->roles['administrator'] = Role::create(['name' => 'Administrator']);
-        $this->roles['manager'] = Role::create(['name' => 'Manager']);
-        $this->roles['employee'] = Role::create(['name' => 'Employee']);
+        $this->roles['administrator'] = Role::create(['name' => 'administrator']);
+        $this->roles['manager'] = Role::create(['name' => 'manager']);
+        $this->roles['employee'] = Role::create(['name' => 'employee']);
     }
 
     public function add_permissions()
