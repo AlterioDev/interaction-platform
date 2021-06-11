@@ -27,12 +27,12 @@
             <tr>
                 <td>List all users</td>
                 <td>GET</td>
-                <td><a href="/api/users">/api/users</a></td>
+                <td><a href="/v2/users">/v2/users</a></td>
             </tr>
             <tr>
                 <td>Add new user</td>
                 <td>POST</td>
-                <td><a href="/api/users">/api/users/add</a></td>
+                <td><a href="/v2/users">/v2/users/add</a></td>
               </tr>
           </table>
     </body>
