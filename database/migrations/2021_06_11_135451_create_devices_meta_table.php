@@ -15,7 +15,7 @@ class CreateDevicesMetaTable extends Migration
     {
         Schema::create('device_meta', function (Blueprint $table) {
             $table->id();
-            $table->integer('device_id')->nullable();
+            $table->integer('device_id');
             $table->string('co2_offset')->nullable();
             $table->string('humidity_offset')->nullable();
             $table->string('temperature_offset')->nullable();

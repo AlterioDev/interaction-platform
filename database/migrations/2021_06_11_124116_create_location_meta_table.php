@@ -20,7 +20,6 @@ class CreateLocationMetaTable extends Migration
             $table->string('mist_site_id')->nullable();
             $table->string('mist_map_id')->nullable();
             $table->integer('accuweather_location_key')->nullable();
-            $table->string('timezone')->nullable();
             $table->integer('co2_notification_offset_low')->nullable();
             $table->integer('co2_notification_offset_high')->nullable();
             $table->integer('humidity_notification_offset')->nullable();
