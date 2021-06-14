@@ -2,6 +2,7 @@
     "name": "alterio/interaction-platform",
     "type": "project",
     "description": "Interaction Platform API",
+    "version": "0.1.0",
     "keywords": [
         "framework",
         "laravel"
