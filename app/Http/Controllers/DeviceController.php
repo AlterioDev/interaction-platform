@@ -7,7 +7,6 @@ use App\Models\DeviceMeta;
 use Illuminate\Http\Request;
 use App\Services\DeviceService;
 
-
 class DeviceController extends Controller
 {
 
