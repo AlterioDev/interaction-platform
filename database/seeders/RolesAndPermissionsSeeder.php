@@ -2,13 +2,12 @@
 
 namespace Database\Seeders;
 
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class RolesAndPermissionsSeeder extends Seeder
 {
-
     private $roles;
     private $permissions;
 
@@ -56,13 +55,12 @@ class RolesAndPermissionsSeeder extends Seeder
         // Manager
         $this->roles['manager']->givePermissionTo($this->permissions['view_location']);
         $this->roles['manager']->givePermissionTo($this->permissions['view_device']);
-        $this->roles['manager']->givePermissionTo($this->permissions['add_device']); 
-        $this->roles['manager']->givePermissionTo($this->permissions['update_device']); 
+        $this->roles['manager']->givePermissionTo($this->permissions['add_device']);
+        $this->roles['manager']->givePermissionTo($this->permissions['update_device']);
         $this->roles['manager']->givePermissionTo($this->permissions['delete_device']);
 
         // Employee
         $this->roles['employee']->givePermissionTo($this->permissions['view_location']);
         $this->roles['employee']->givePermissionTo($this->permissions['view_device']);
     }
-
 }

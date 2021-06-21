@@ -7,15 +7,14 @@ use App\Models\LocationMeta;
 
 class LocationService
 {
-
     public function handleLocationIndex()
     {
-
         try {
             $user = auth()->user();
             if ($user->can('view location')) {
                 $locations = $user->userMeta->allowed_locations;
                 $query = Location::query();
+
                 return $locations == '*' ? $query->get() : $query->whereIn('id', explode(',', $locations))->get();
             } else {
                 return response('No permission to perform this request', 403);
@@ -29,6 +28,7 @@ class LocationService
     {
         try {
             $location = Location::where('id', $id)->get();
+
             return response()->json($location, 200);
         } catch (\Exception $e) {
             return response()->json($e->getMessage(), 500);
@@ -40,6 +40,7 @@ class LocationService
         try {
             Location::find($id)->delete();
             LocationMeta::where('device_id', $id)->delete();
+
             return response()->json('Location successfully deleted', 200);
         } catch (\Exception $e) {
             return response()->json($e->getMessage(), 500);
@@ -74,18 +75,18 @@ class LocationService
 
             $meta = LocationMeta::create([
                 'device_id' => $location->id,
-                'mist_org_id' => $request->mist_org_id ? $request->mist_org_id : NULL,
-                'mist_site_id' => $request->mist_site_id ? $request->mist_site_id : NULL,
-                'mist_map_id' => $request->mist_map_id ? $request->mist_map_id : NULL,
-                'accuweather_location_key' => $request->accuweather_location_key ? $request->accuweather_location_key : NULL,
-                'co2_notification_offset_low' => $request->co2_notification_offset_low ? $request->co2_notification_offset_low : NULL,
-                'co2_notification_offset_high' => $request->co2_notification_offset_high ? $request->co2_notification_offset_high : NULL,
-                'humidity_notification_offset' => $request->humidity_notification_offset ? $request->humidity_notification_offset : NULL,
-                'capacity_notification_offset' => $request->capacity_notification_offset ? $request->capacity_notification_offset : NULL,
-                'floorplan_image' => $request->floorplan_image ? $request->floorplan_image : NULL,
-                'floorplan_height' => $request->floorplan_height ? $request->floorplan_height : NULL,
-                'floorplan_width' => $request->floorplan_width ? $request->floorplan_width : NULL,
-                'public_ssid' => $request->public_ssid ? $request->public_ssid : NULL,
+                'mist_org_id' => $request->mist_org_id ? $request->mist_org_id : null,
+                'mist_site_id' => $request->mist_site_id ? $request->mist_site_id : null,
+                'mist_map_id' => $request->mist_map_id ? $request->mist_map_id : null,
+                'accuweather_location_key' => $request->accuweather_location_key ? $request->accuweather_location_key : null,
+                'co2_notification_offset_low' => $request->co2_notification_offset_low ? $request->co2_notification_offset_low : null,
+                'co2_notification_offset_high' => $request->co2_notification_offset_high ? $request->co2_notification_offset_high : null,
+                'humidity_notification_offset' => $request->humidity_notification_offset ? $request->humidity_notification_offset : null,
+                'capacity_notification_offset' => $request->capacity_notification_offset ? $request->capacity_notification_offset : null,
+                'floorplan_image' => $request->floorplan_image ? $request->floorplan_image : null,
+                'floorplan_height' => $request->floorplan_height ? $request->floorplan_height : null,
+                'floorplan_width' => $request->floorplan_width ? $request->floorplan_width : null,
+                'public_ssid' => $request->public_ssid ? $request->public_ssid : null,
             ]);
 
             if ($location && $meta) {
@@ -114,18 +115,18 @@ class LocationService
             ]);
 
             $meta = LocationMeta::where('location_id', $id)->update([
-                'mist_org_id' => $request->mist_org_id ? $request->mist_org_id : NULL,
-                'mist_site_id' => $request->mist_site_id ? $request->mist_site_id : NULL,
-                'mist_map_id' => $request->mist_map_id ? $request->mist_map_id : NULL,
-                'accuweather_location_key' => $request->accuweather_location_key ? $request->accuweather_location_key : NULL,
-                'co2_notification_offset_low' => $request->co2_notification_offset_low ? $request->co2_notification_offset_low : NULL,
-                'co2_notification_offset_high' => $request->co2_notification_offset_high ? $request->co2_notification_offset_high : NULL,
-                'humidity_notification_offset' => $request->humidity_notification_offset ? $request->humidity_notification_offset : NULL,
-                'capacity_notification_offset' => $request->capacity_notification_offset ? $request->capacity_notification_offset : NULL,
-                'floorplan_image' => $request->floorplan_image ? $request->floorplan_image : NULL,
-                'floorplan_height' => $request->floorplan_height ? $request->floorplan_height : NULL,
-                'floorplan_width' => $request->floorplan_width ? $request->floorplan_width : NULL,
-                'public_ssid' => $request->public_ssid ? $request->public_ssid : NULL,
+                'mist_org_id' => $request->mist_org_id ? $request->mist_org_id : null,
+                'mist_site_id' => $request->mist_site_id ? $request->mist_site_id : null,
+                'mist_map_id' => $request->mist_map_id ? $request->mist_map_id : null,
+                'accuweather_location_key' => $request->accuweather_location_key ? $request->accuweather_location_key : null,
+                'co2_notification_offset_low' => $request->co2_notification_offset_low ? $request->co2_notification_offset_low : null,
+                'co2_notification_offset_high' => $request->co2_notification_offset_high ? $request->co2_notification_offset_high : null,
+                'humidity_notification_offset' => $request->humidity_notification_offset ? $request->humidity_notification_offset : null,
+                'capacity_notification_offset' => $request->capacity_notification_offset ? $request->capacity_notification_offset : null,
+                'floorplan_image' => $request->floorplan_image ? $request->floorplan_image : null,
+                'floorplan_height' => $request->floorplan_height ? $request->floorplan_height : null,
+                'floorplan_width' => $request->floorplan_width ? $request->floorplan_width : null,
+                'public_ssid' => $request->public_ssid ? $request->public_ssid : null,
             ]);
 
             if ($location && $meta) {

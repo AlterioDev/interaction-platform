@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Location;
 use Illuminate\Database\Eloquent\Model;
 
 class LocationMeta extends Model

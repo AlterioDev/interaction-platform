@@ -6,20 +6,19 @@ use App\Models\User;
 use App\Models\UserMeta;
 use Illuminate\Support\Facades\Hash;
 
-class AuthService 
+class AuthService
 {
-
     public function handleUserLogin($request)
     {
         $fields = $request->validate([
             'email' => 'required|max:255',
-            'password' => 'required'
+            'password' => 'required',
         ]);
         $user = User::where('email', $fields['email'])->first();
 
-        if (!$user || !Hash::check($fields['password'], $user->password)) {
+        if (! $user || ! Hash::check($fields['password'], $user->password)) {
             return response([
-                'message' => 'Invalid credentials'
+                'message' => 'Invalid credentials',
             ], 401);
         }
 
@@ -39,7 +38,7 @@ class AuthService
             'email' => 'required|unique:users|max:255',
             'password' => 'required',
             'role' => 'required',
-            'allowed_locations' => 'required'
+            'allowed_locations' => 'required',
         ]);
 
         $user = User::create($fields);
@@ -48,7 +47,7 @@ class AuthService
 
         $meta = UserMeta::create([
             'user_id' => $user->id,
-            'allowed_locations' => $fields['allowed_locations']
+            'allowed_locations' => $fields['allowed_locations'],
         ]);
 
         if ($user && $meta) {
@@ -57,5 +56,4 @@ class AuthService
 
         return response('Error creating user, please try again', 500);
     }
-
 }

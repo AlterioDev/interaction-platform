@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Device;
 use Illuminate\Database\Eloquent\Model;
 
 class DeviceMeta extends Model

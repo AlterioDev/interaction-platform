@@ -15,7 +15,6 @@ class DevicesTableSeeder extends Seeder
      */
     public function run()
     {
-
         $this->add_devices();
         $this->add_meta_to_devices();
     }
@@ -37,12 +36,12 @@ class DevicesTableSeeder extends Seeder
     {
         $this->deviceMeta['device_1'] = deviceMeta::create([
             'device_id' => $this->device['device_1']->id,
-            'mac_address' => 'a1b2c3d4e5'
+            'mac_address' => 'a1b2c3d4e5',
 
         ]);
         $this->deviceMeta['device_2'] = deviceMeta::create([
             'device_id' => $this->device['device_2']->id,
-            'mac_address' => 'a6b7c8d9e1'
+            'mac_address' => 'a6b7c8d9e1',
         ]);
     }
 }

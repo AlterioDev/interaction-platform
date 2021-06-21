@@ -15,7 +15,6 @@ class LocationsTableSeeder extends Seeder
      */
     public function run()
     {
-
         $this->add_locations();
         $this->add_meta_to_locations();
     }
